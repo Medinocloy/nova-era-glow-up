@@ -21,16 +21,15 @@ const LevelCard: React.FC<LevelCardProps> = ({
     <div 
       onClick={onClick}
       className={cn(
-        'flex flex-col items-center justify-center p-6 rounded-nova',
-        'bg-white/20 backdrop-blur-sm border-2 border-white',
-        'shadow-nova cursor-pointer text-white text-shadow',
-        'transition-transform duration-300 hover:scale-105',
+        'flex flex-col items-center justify-center p-6 rounded-lg',
+        'bg-white dark:bg-gray-800 border border-[#dee2e6] dark:border-gray-700',
+        'shadow-sm card-hover cursor-pointer ripple',
         className
       )}
     >
-      <div className="text-4xl mb-2">{emoji}</div>
-      <h3 className="font-poppins font-bold text-xl mb-1">{title}</h3>
-      <p className="text-sm opacity-90">{description}</p>
+      <div className="text-4xl mb-4">{emoji}</div>
+      <h3 className="font-poppins font-semibold text-xl mb-2 text-[#343a40] dark:text-white">{title}</h3>
+      <p className="text-sm text-[#6c757d] dark:text-gray-300 font-inter">{description}</p>
     </div>
   );
 };

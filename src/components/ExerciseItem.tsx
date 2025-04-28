@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Play } from 'lucide-react';
 
 interface ExerciseItemProps {
   name: string;
@@ -40,16 +41,15 @@ const ExerciseItem: React.FC<ExerciseItemProps> = ({
     <div 
       onClick={onClick}
       className={cn(
-        'flex items-center p-3 mb-4 rounded-nova',
-        'bg-white/10 backdrop-blur-sm border border-white/40',
-        'cursor-pointer transition-transform hover:scale-[1.02]',
-        'dark:bg-gray-800/30 dark:border-gray-700/40',
+        'flex items-center p-4 mb-6 rounded-lg',
+        'bg-white dark:bg-gray-800 border border-[#dee2e6] dark:border-gray-700',
+        'cursor-pointer card-hover ripple',
         className
       )}
     >
-      <div className="w-16 h-16 rounded-nova overflow-hidden mr-4 flex-shrink-0 relative">
+      <div className="w-16 h-16 rounded-lg overflow-hidden mr-4 flex-shrink-0 relative">
         {isImageLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+          <div className="absolute inset-0 flex items-center justify-center bg-[#e9ecef] dark:bg-gray-700">
             <div className="text-2xl">{getEquipmentEmoji()}</div>
           </div>
         )}
@@ -62,20 +62,23 @@ const ExerciseItem: React.FC<ExerciseItemProps> = ({
         />
       </div>
       <div className="flex-1 text-left">
-        <h3 className="font-poppins font-bold text-white text-shadow">{name}</h3>
-        <p className="text-sm text-white/80">{reps}</p>
+        <h3 className="font-poppins font-semibold text-[#343a40] dark:text-white">{name}</h3>
+        <p className="text-sm italic text-[#6c757d] dark:text-gray-300">{reps}</p>
       </div>
       <div className="flex flex-col items-end gap-2">
         {equipment && (
-          <div className="w-8 h-8 rounded-full bg-white/10 dark:bg-gray-700/50 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full bg-[#e9ecef] dark:bg-gray-700 flex items-center justify-center">
             <span>{getEquipmentEmoji()}</span>
           </div>
         )}
         {isPopular && (
-          <div className="px-2 py-1 bg-gradient-to-r from-nova-gold to-nova-yellow rounded-full text-xs font-medium text-white text-shadow whitespace-nowrap dark:from-amber-700 dark:to-amber-600">
+          <div className="px-2 py-1 bg-[#69db7c] dark:bg-emerald-700 rounded-full text-xs font-medium text-white whitespace-nowrap">
             🔥 Popular
           </div>
         )}
+        <div className="w-8 h-8 rounded-full bg-[#4dabf7] flex items-center justify-center text-white">
+          <Play size={16} />
+        </div>
       </div>
     </div>
   );

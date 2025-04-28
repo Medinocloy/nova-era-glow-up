@@ -17,7 +17,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 210 92% 63%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -26,7 +26,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 151 55% 63%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -53,48 +53,47 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 220 13% 18%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 220 13% 18%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 220 13% 18%;
     --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
+    --primary: 210 92% 63%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 215 14% 24%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
+    --muted: 215 14% 24%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    --accent: 151 55% 43%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
+    --border: 215 14% 24%;
+    --input: 215 14% 24%;
     --ring: 240 4.9% 83.9%;
   }
 }
 
 @layer utilities {
-  /* Reduced saturation to 70% as requested */
   .nova-gradient {
-    background: linear-gradient(25deg, rgba(238,191,36,0.7), rgba(247,193,106,0.7), rgba(253,195,161,0.7), rgba(255,197,213,0.7));
+    background: linear-gradient(25deg, #f8f9fa, #e9ecef, #dee2e6, #ced4da);
   }
   
   .nova-button-gradient {
-    background: linear-gradient(45deg, rgba(238,191,36,0.8), rgba(247,193,106,0.8));
+    background: linear-gradient(45deg, #4dabf7, #74c0fc);
   }
 
   .dark .nova-gradient {
-    background: linear-gradient(25deg, rgba(50,40,10,0.8), rgba(60,50,30,0.8), rgba(70,60,50,0.8), rgba(80,70,70,0.8));
+    background: linear-gradient(25deg, #212529, #343a40, #495057, #6c757d);
   }
   
   .dark .nova-button-gradient {
-    background: linear-gradient(45deg, rgba(60,50,20,0.9), rgba(80,70,30,0.9));
+    background: linear-gradient(45deg, #1864ab, #1971c2);
   }
   
   .text-shadow {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
   
   .confetti {
@@ -104,10 +103,47 @@
     background-color: #E0E0E0; /* Silver accent instead of gold */
     border-radius: 50%;
   }
+  
+  .card-hover {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+  }
+  
+  .ripple:active:after {
+    transform: scale(0, 0);
+    opacity: .3;
+    transition: 0s;
+  }
 }
 
 body {
-  @apply text-white font-inter;
+  @apply text-[#212529] font-inter;
   margin: 0;
   min-height: 100vh;
 }
