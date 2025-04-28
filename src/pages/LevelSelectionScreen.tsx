@@ -3,47 +3,32 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LevelCard from '../components/LevelCard';
 import GoldenButton from '../components/GoldenButton';
+import { toast } from 'sonner';
+import workoutLevels from '../data/workoutRoutines';
 
 const LevelSelectionScreen: React.FC = () => {
   const navigate = useNavigate();
   const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
   const [showConfetti, setShowConfetti] = useState(false);
 
-  const levels = [
-    {
-      id: 'beginner',
-      title: 'Principiante',
-      emoji: '🌱',
-      description: '3 días/semana',
-    },
-    {
-      id: 'intermediate',
-      title: 'Intermedio',
-      emoji: '💪',
-      description: '5 días/semana',
-    },
-    {
-      id: 'advanced',
-      title: 'Avanzado',
-      emoji: '🚀',
-      description: 'Retos extremos',
-    },
-  ];
-
-  const handleLevelSelect = (levelId: string) => {
+  const handleLevelSelect = (levelId: string, index: number) => {
     setSelectedLevel(levelId);
-  };
-
-  const handleConfirm = () => {
-    if (selectedLevel) {
-      // Show confetti animation
-      setShowConfetti(true);
-      
-      // Navigate after animation
-      setTimeout(() => {
-        navigate('/routine');
-      }, 800);
+    
+    // Provide haptic feedback if available
+    if (navigator.vibrate) {
+      navigator.vibrate(50);
     }
+    
+    // Show toast notification
+    toast.success(`Nivel ${workoutLevels[index].title} seleccionado`);
+    
+    // Automatically proceed to routine after selection
+    setShowConfetti(true);
+      
+    // Navigate after animation
+    setTimeout(() => {
+      navigate('/routine', { state: { levelIndex: index } });
+    }, 800);
   };
 
   // Generate confetti elements when animation is triggered
@@ -60,7 +45,7 @@ const LevelSelectionScreen: React.FC = () => {
         top: '-10px',
         width: `${size}px`,
         height: `${size}px`,
-        backgroundColor: i % 3 === 0 ? '#eebf24' : i % 3 === 1 ? '#f7c16a' : '#fdc3a1',
+        backgroundColor: i % 3 === 0 ? '#E0E0E0' : i % 3 === 1 ? '#9F9EA1' : '#fdc3a1',
         animationDuration: `${animationDuration}s`,
       };
       
@@ -75,25 +60,17 @@ const LevelSelectionScreen: React.FC = () => {
       </h1>
       
       <div className="grid grid-cols-1 gap-6 w-full max-w-md mb-10">
-        {levels.map((level) => (
+        {workoutLevels.map((level, index) => (
           <LevelCard
             key={level.id}
             title={level.title}
             emoji={level.emoji}
             description={level.description}
-            onClick={() => handleLevelSelect(level.id)}
+            onClick={() => handleLevelSelect(level.id, index)}
             className={selectedLevel === level.id ? 'ring-4 ring-white' : ''}
           />
         ))}
       </div>
-      
-      <GoldenButton 
-        onClick={handleConfirm} 
-        className={`${!selectedLevel ? 'opacity-50 pointer-events-none' : ''}`}
-        fullWidth
-      >
-        Comenzar
-      </GoldenButton>
       
       {renderConfetti()}
     </div>

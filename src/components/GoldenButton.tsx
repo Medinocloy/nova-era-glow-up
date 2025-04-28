@@ -19,10 +19,11 @@ const GoldenButton: React.FC<GoldenButtonProps> = ({
     <button
       onClick={onClick}
       className={cn(
-        'nova-button-gradient relative px-6 py-3 rounded-nova border-2 border-white',
+        'nova-button-gradient relative px-6 py-3 rounded-nova border-2',
         'font-poppins font-bold text-white text-shadow shadow-nova',
         'transition-transform duration-300 ease-out hover:scale-105',
         'active:scale-95',
+        'border-gray-200 dark:border-gray-600', // Silver accent for border
         fullWidth ? 'w-full' : '',
         className
       )}
