@@ -12,7 +12,7 @@ const Index = () => {
     const timer = setTimeout(() => {
       setShowSplash(false);
       navigate('/level-selection');
-    }, 2000);
+    }, 1000); // Reduced from 2000 to 1000 ms for faster splash screen
     
     return () => clearTimeout(timer);
   }, [navigate]);
