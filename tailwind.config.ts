@@ -64,10 +64,13 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				nova: {
-					gold: '#eebf24',
-					yellow: '#f7c16a',
-					orange: '#fdc3a1',
-					pink: '#ffc5d5',
+					red: '#e60000',
+					brightRed: '#FF3636',
+					darkRed: '#b30000',
+					black: '#121212',
+					darkGray: '#333333',
+					gray: '#4d4d4d',
+					lightGray: '#666666',
 				}
 			},
 			fontFamily: {
@@ -81,7 +84,7 @@ export default {
 				nova: '12px',
 			},
 			boxShadow: {
-				nova: '0 8px 24px rgba(238, 191, 36, 0.3)',
+				nova: '0 8px 24px rgba(230, 0, 0, 0.3)', // Updated to red shadow
 			},
 			keyframes: {
 				'accordion-down': {

@@ -23,7 +23,7 @@ const GoldenButton: React.FC<GoldenButtonProps> = ({
         'font-poppins font-bold text-white text-shadow shadow-nova',
         'transition-transform duration-300 ease-out hover:scale-105',
         'active:scale-95',
-        'border-gray-200 dark:border-gray-600', // Silver accent for border
+        'border-nova-darkGray/30 dark:border-gray-600', 
         fullWidth ? 'w-full' : '',
         className
       )}

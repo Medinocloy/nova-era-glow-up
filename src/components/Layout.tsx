@@ -36,12 +36,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header with logo and mobile menu button */}
-      <header className="bg-black text-white p-4 flex justify-between items-center">
+      <header className="bg-nova-black text-white p-4 flex justify-between items-center">
         <div 
           className="flex items-center cursor-pointer" 
           onClick={() => navigate('/')}
         >
-          <div className="flex items-center justify-center h-10 w-10 bg-gradient-to-br from-red-600 to-black rounded-full">
+          <div className="flex items-center justify-center h-10 w-10 bg-gradient-to-br from-nova-red to-nova-black rounded-full">
             <Dumbbell className="h-6 w-6 text-white" />
           </div>
           <h1 className="ml-3 text-xl font-poppins font-bold">NOVA ERA</h1>
@@ -54,15 +54,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       <div className="flex flex-1">
         {/* Vertical navigation menu - for desktop */}
-        <nav className="hidden lg:block w-64 bg-gray-900 text-white">
+        <nav className="hidden lg:block w-64 bg-nova-black text-white">
           <ul className="py-4">
             {menuItems.map((item) => (
               <li key={item.path}>
                 <button
                   onClick={() => navigate(item.path)}
                   className={cn(
-                    "w-full flex items-center px-6 py-4 hover:bg-gray-800 transition-colors",
-                    location.pathname === item.path && "bg-red-600"
+                    "w-full flex items-center px-6 py-4 hover:bg-nova-darkGray transition-colors",
+                    location.pathname === item.path && "bg-nova-red"
                   )}
                 >
                   <span className="mr-3">{item.icon}</span>
@@ -78,7 +78,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {isMenuOpen && (
           <div className="lg:hidden fixed inset-0 bg-black bg-opacity-70 z-40" onClick={toggleMenu}>
             <div 
-              className="bg-gray-900 text-white w-3/4 h-full p-4"
+              className="bg-nova-black text-white w-3/4 h-full p-4"
               onClick={(e) => e.stopPropagation()}
             >
               <ul className="py-4">
@@ -90,8 +90,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         setIsMenuOpen(false);
                       }}
                       className={cn(
-                        "w-full flex items-center px-6 py-4 hover:bg-gray-800 rounded-md transition-colors",
-                        location.pathname === item.path && "bg-red-600"
+                        "w-full flex items-center px-6 py-4 hover:bg-nova-darkGray rounded-md transition-colors",
+                        location.pathname === item.path && "bg-nova-red"
                       )}
                     >
                       <span className="mr-3">{item.icon}</span>

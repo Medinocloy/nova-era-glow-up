@@ -18,9 +18,9 @@ const SplashScreen: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-black to-gray-800 min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div className="bg-gradient-to-br from-nova-black to-nova-darkGray min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="relative z-10 text-center">
-        <div className="flex items-center justify-center h-24 w-24 bg-gradient-to-br from-red-600 to-black rounded-full mx-auto mb-6">
+        <div className="flex items-center justify-center h-24 w-24 bg-gradient-to-br from-nova-red to-nova-black rounded-full mx-auto mb-6">
           <Dumbbell className="h-14 w-14 text-white" />
         </div>
         <h1 className="text-5xl font-poppins font-bold text-white text-shadow animate-scale-in">
