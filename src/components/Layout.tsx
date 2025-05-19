@@ -34,35 +34,40 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Header with logo and mobile menu button */}
-      <header className="bg-nova-blue text-white p-4 flex justify-between items-center shadow-md">
+    <div className="min-h-screen flex flex-col bg-nova-black">
+      {/* Header con estilo gótico */}
+      <header className="bg-nova-black text-white border-b border-nova-red/30 p-4 flex justify-between items-center shadow-md relative">
+        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-nova-red to-transparent"></div>
+        
         <div 
           className="flex items-center cursor-pointer" 
           onClick={() => navigate('/')}
         >
-          <div className="flex items-center justify-center h-10 w-10 bg-gradient-to-br from-nova-red to-nova-black rounded-full">
+          <div className="flex items-center justify-center h-10 w-10 nova-button-gradient rounded-none">
             <Dumbbell className="h-6 w-6 text-white" />
           </div>
-          <h1 className="ml-3 text-xl font-poppins font-bold">NOVA ERA</h1>
+          <h1 className="ml-3 text-xl font-gothic tracking-wider font-bold text-white uppercase">NOVA <span className="text-nova-red">ERA</span></h1>
         </div>
         
-        <button onClick={toggleMenu} className="lg:hidden p-2">
+        <button onClick={toggleMenu} className="lg:hidden p-2 text-nova-red">
           {isMenuOpen ? <X /> : <Menu />}
         </button>
       </header>
 
       <div className="flex flex-1">
-        {/* Vertical navigation menu - for desktop */}
-        <nav className="hidden lg:block w-64 bg-nova-blue text-white">
+        {/* Navegación vertical estilo gótico - para desktop */}
+        <nav className="hidden lg:block w-64 bg-nova-black border-r border-nova-gray/20 text-white">
           <ul className="py-4">
             {menuItems.map((item) => (
-              <li key={item.path}>
+              <li key={item.path} className="my-1 mx-2">
                 <button
                   onClick={() => navigate(item.path)}
                   className={cn(
-                    "w-full flex items-center px-6 py-4 hover:bg-nova-black/30 transition-colors",
-                    location.pathname === item.path && "bg-nova-red"
+                    "w-full flex items-center px-6 py-4 transition-colors",
+                    "border-l-2 hover:bg-nova-darkGray/30 font-gothic tracking-wide",
+                    location.pathname === item.path 
+                      ? "border-l-nova-red text-nova-red bg-nova-darkGray/30" 
+                      : "border-l-transparent"
                   )}
                 >
                   <span className="mr-3">{item.icon}</span>
@@ -72,15 +77,31 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </li>
             ))}
           </ul>
+          
+          <div className="mt-8 px-6">
+            <div className="gothic-divider"></div>
+            <div className="text-center text-nova-gold text-xs font-gothic tracking-wider mt-4">
+              ENTRENAMIENTO DE ÉLITE
+            </div>
+          </div>
         </nav>
 
-        {/* Mobile menu overlay */}
+        {/* Menú móvil estilo gótico */}
         {isMenuOpen && (
-          <div className="lg:hidden fixed inset-0 bg-black bg-opacity-70 z-40" onClick={toggleMenu}>
+          <div className="lg:hidden fixed inset-0 bg-black bg-opacity-90 z-40" onClick={toggleMenu}>
             <div 
-              className="bg-nova-blue text-white w-3/4 h-full p-4"
+              className="bg-nova-black text-white w-3/4 h-full p-4 border-r border-nova-red/30"
               onClick={(e) => e.stopPropagation()}
             >
+              <div className="flex items-center mb-8">
+                <div className="flex items-center justify-center h-10 w-10 nova-button-gradient">
+                  <Dumbbell className="h-6 w-6 text-white" />
+                </div>
+                <h1 className="ml-3 text-xl font-gothic tracking-wider font-bold">NOVA <span className="text-nova-red">ERA</span></h1>
+              </div>
+              
+              <div className="gothic-divider"></div>
+              
               <ul className="py-4">
                 {menuItems.map((item) => (
                   <li key={item.path} className="mb-2">
@@ -90,8 +111,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         setIsMenuOpen(false);
                       }}
                       className={cn(
-                        "w-full flex items-center px-6 py-4 hover:bg-nova-black/30 rounded-md transition-colors",
-                        location.pathname === item.path && "bg-nova-red"
+                        "w-full flex items-center px-4 py-3 transition-colors",
+                        "border-l-2 font-gothic tracking-wide",
+                        location.pathname === item.path 
+                          ? "border-l-nova-red text-nova-red bg-nova-darkGray/30"
+                          : "border-l-transparent hover:bg-nova-darkGray/20"
                       )}
                     >
                       <span className="mr-3">{item.icon}</span>
@@ -101,12 +125,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   </li>
                 ))}
               </ul>
+              
+              <div className="gothic-divider mt-8"></div>
+              <div className="text-center text-nova-gold text-xs font-gothic tracking-wider mt-4">
+                ENTRENAMIENTO DE ÉLITE
+              </div>
             </div>
           </div>
         )}
 
-        {/* Main content */}
-        <main className="flex-1">
+        {/* Contenido principal */}
+        <main className="flex-1 bg-nova-black">
           {children}
         </main>
       </div>

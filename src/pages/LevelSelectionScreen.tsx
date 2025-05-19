@@ -27,27 +27,31 @@ const LevelSelectionScreen = () => {
   
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-poppins font-bold mb-2">Selecciona tu Nivel</h1>
-        <p className="text-gray-600 dark:text-nova-lightGray">Escoge el nivel de entrenamiento que mejor se ajuste a ti</p>
+      <div className="text-center mb-12">
+        <h1 className="text-3xl font-gothic uppercase tracking-wider mb-2">Selecciona tu Nivel</h1>
+        <div className="gothic-divider"></div>
+        <p className="text-nova-gold mt-4">Escoge el nivel de entrenamiento que mejor se ajuste a ti</p>
       </div>
       
       <div className="grid grid-cols-1 gap-6 mb-8">
         {workoutLevels.map((level, index) => (
-          <LevelCard
-            key={level.id}
-            title={level.title}
-            emoji={level.emoji}
-            description={level.description}
-            onClick={() => handleLevelSelect(index)}
-          />
+          <div key={level.id} className="gothic-card hover:border-nova-red transition-all duration-300">
+            <LevelCard
+              key={level.id}
+              title={level.title}
+              emoji={level.emoji}
+              description={level.description}
+              onClick={() => handleLevelSelect(index)}
+            />
+          </div>
         ))}
       </div>
       
       <div className="mt-6">
         <GoldenButton
           onClick={handleTechnicalAnalysis}
-          className="flex items-center justify-center gap-2 nova-red-blue-gradient mx-auto"
+          className="flex items-center justify-center gap-2 mx-auto"
+          variant="gold"
         >
           <Activity size={18} />
           Análisis Técnico Avanzado

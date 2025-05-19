@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
 import { Calendar as CalendarIcon } from 'lucide-react';
+import GoldenButton from '../components/GoldenButton';
+import { toast } from 'sonner';
 
 const timeSlots = [
   "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM",
@@ -25,8 +27,7 @@ const ScheduleScreen: React.FC = () => {
   
   const handleBooking = () => {
     if (selectedTime) {
-      // Here you would typically make an API call to book the appointment
-      alert(`Reserva exitosa para ${daysOfWeek[selectedDay]} a las ${selectedTime}`);
+      toast.success(`Reserva exitosa para ${daysOfWeek[selectedDay]} a las ${selectedTime}`);
     }
   };
 
@@ -41,15 +42,16 @@ const ScheduleScreen: React.FC = () => {
   return (
     <div className="p-6 max-w-5xl mx-auto">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-poppins font-bold mb-2">Agendar Hora</h1>
-        <p className="text-gray-600 dark:text-nova-lightGray">Selecciona el día y horario que prefieras</p>
+        <h1 className="text-3xl font-gothic uppercase tracking-wider mb-2">Agendar Hora</h1>
+        <div className="gothic-divider"></div>
+        <p className="text-nova-gold mt-4">Selecciona el día y horario que prefieras</p>
       </div>
       
       {/* Calendar Week View */}
-      <div className="mb-8">
+      <div className="mb-8 gothic-card p-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="font-medium text-lg flex items-center">
-            <CalendarIcon className="mr-2 h-5 w-5" />
+          <h2 className="font-gothic text-lg flex items-center text-white">
+            <CalendarIcon className="mr-2 h-5 w-5 text-nova-gold" />
             Selecciona un día
           </h2>
         </div>
@@ -59,52 +61,48 @@ const ScheduleScreen: React.FC = () => {
             <div
               key={day}
               onClick={() => handleDaySelect(index)}
-              className={`cursor-pointer p-4 rounded-lg text-center transition-colors ${
+              className={`cursor-pointer p-4 gothic-card transition-colors ${
                 selectedDay === index 
-                  ? 'bg-nova-red text-white' 
-                  : 'bg-gray-100 dark:bg-nova-black hover:bg-gray-200 dark:hover:bg-nova-darkGray'
+                  ? 'border-nova-red bg-nova-darkGray' 
+                  : 'hover:border-nova-gold'
               }`}
             >
-              <div className="font-medium">{day.substring(0, 3)}</div>
-              <div className="text-lg font-bold mt-1">{currentWeekDates[index]}</div>
+              <div className="font-gothic uppercase">{day.substring(0, 3)}</div>
+              <div className="text-lg font-bold mt-1 text-nova-gold">{currentWeekDates[index]}</div>
             </div>
           ))}
         </div>
       </div>
       
       {/* Time Slots */}
-      <div>
-        <h2 className="font-medium text-lg mb-4">Horarios disponibles</h2>
+      <div className="gothic-card p-6">
+        <h2 className="font-gothic text-lg mb-4 text-white">Horarios disponibles</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
           {timeSlots.map((time) => (
             <div
               key={time}
               onClick={() => handleTimeSelect(time)}
-              className={`cursor-pointer p-3 rounded-lg text-center border transition-colors ${
+              className={`cursor-pointer p-3 text-center transition-colors ${
                 selectedTime === time
-                  ? 'bg-nova-red text-white border-nova-red'
-                  : 'border-gray-200 dark:border-nova-darkGray hover:border-nova-red dark:hover:border-nova-brightRed'
+                  ? 'border nova-button-gradient text-white'
+                  : 'border border-nova-gray/30 hover:border-nova-red'
               }`}
             >
               {time}
             </div>
           ))}
         </div>
-      </div>
-      
-      {/* Booking Button */}
-      <div className="mt-8 text-center">
-        <button
-          onClick={handleBooking}
-          disabled={!selectedTime}
-          className={`px-8 py-3 rounded-lg font-medium transition-colors ${
-            selectedTime
-              ? 'bg-nova-red text-white hover:bg-nova-brightRed nova-button-gradient'
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-          }`}
-        >
-          Confirmar Reserva
-        </button>
+        
+        {/* Booking Button */}
+        <div className="mt-8 text-center">
+          <GoldenButton
+            onClick={handleBooking}
+            disabled={!selectedTime}
+            className={`px-8 py-3 ${!selectedTime ? 'opacity-50 cursor-not-allowed' : ''}`}
+          >
+            Confirmar Reserva
+          </GoldenButton>
+        </div>
       </div>
     </div>
   );

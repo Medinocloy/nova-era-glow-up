@@ -7,28 +7,31 @@ interface GoldenButtonProps {
   children: React.ReactNode;
   className?: string;
   fullWidth?: boolean;
+  variant?: 'red' | 'gold';
 }
 
 const GoldenButton: React.FC<GoldenButtonProps> = ({ 
   onClick, 
   children, 
   className = "",
-  fullWidth = false
+  fullWidth = false,
+  variant = 'red'
 }) => {
   return (
     <button
       onClick={onClick}
       className={cn(
-        'nova-button-gradient relative px-6 py-3 rounded-nova border-2',
-        'font-poppins font-bold text-white text-shadow shadow-nova',
-        'transition-transform duration-300 ease-out hover:scale-105',
-        'active:scale-95',
-        'border-nova-lightGray/30 dark:border-nova-lightGray/20', 
+        'relative px-6 py-3 border font-gothic uppercase tracking-wider',
+        'text-white text-shadow shadow-nova transition-colors duration-300',
+        'hover:animate-glowing active:scale-95',
+        variant === 'red' ? 'nova-button-gradient border-nova-red/40' : 'nova-gold-gradient border-nova-gold/40',
         fullWidth ? 'w-full' : '',
         className
       )}
     >
-      {children}
+      <div className="relative z-10">
+        {children}
+      </div>
     </button>
   );
 };

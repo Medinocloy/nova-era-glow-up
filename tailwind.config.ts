@@ -64,29 +64,29 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				nova: {
-					red: '#6A0D0D',             // Updated to dark metallic red
-					brightRed: '#8A1D1D',       // Lighter version of the dark red
-					darkRed: '#4A0808',         // Darker version of the dark red
-					blue: '#1E3A5F',            // Added deep blue metallic
-					brightBlue: '#4A90E2',      // Added electric blue accent
-					black: '#2A2A2A',           // Updated to charcoal gray
-					darkGray: '#2A2A2A',        // Updated to match charcoal gray
-					gray: '#666666',            // Kept for consistency
-					lightGray: '#C0C0C0',       // Updated to silver metallic
+					red: '#8a0303',             // Rojo intenso como en la imagen
+					brightRed: '#c41212',       // Rojo brillante para acentos
+					darkRed: '#4A0808',         // Rojo más oscuro para fondos
+					gold: '#d4af37',            // Dorado para detalles
+					black: '#0a0a0a',           // Negro profundo para fondos
+					darkGray: '#1a1a1a',        // Gris oscuro para elementos secundarios
+					gray: '#333333',            // Gris para bordes
+					lightGray: '#666666',       // Gris claro para textos secundarios
 				}
 			},
 			fontFamily: {
 				poppins: ['Poppins', 'sans-serif'],
 				inter: ['Inter', 'sans-serif'],
+				gothic: ['Cinzel', 'serif'],   // Fuente estilo gótico/medieval
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
-				nova: '12px',
+				nova: '0px',                  // Bordes rectos como en la imagen
 			},
 			boxShadow: {
-				nova: '0 8px 24px rgba(106, 13, 13, 0.3)', // Updated to match the new red
+				nova: '0 8px 24px rgba(138, 3, 3, 0.4)', // Sombra roja
 			},
 			keyframes: {
 				'accordion-down': {
@@ -124,6 +124,11 @@ export default {
 				'particle': {
 					'0%': { transform: 'translate(0, 0) rotate(0deg)', opacity: '1' },
 					'100%': { transform: 'translate(var(--tx), var(--ty)) rotate(var(--r))', opacity: '0' },
+				},
+				'glowing': {
+					'0%': { boxShadow: '0 0 5px #8a0303' },
+					'50%': { boxShadow: '0 0 20px #8a0303' },
+					'100%': { boxShadow: '0 0 5px #8a0303' }
 				}
 			},
 			animation: {
@@ -135,6 +140,7 @@ export default {
 				'confetti': 'confetti 2s forwards',
 				'wave': 'wave 8s ease infinite',
 				'particle': 'particle 1.5s forwards',
+				'glowing': 'glowing 2s infinite'
 			}
 		}
 	},
