@@ -1,10 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Dumbbell } from 'lucide-react';
 import ParticleEffect from '../components/ParticleEffect';
 
 const SplashScreen: React.FC = () => {
-  const navigate = useNavigate();
   const [showParticles, setShowParticles] = useState(false);
 
   useEffect(() => {
@@ -13,24 +12,21 @@ const SplashScreen: React.FC = () => {
       setShowParticles(true);
     }, 500);
 
-    // Navigate to level selection after splash screen duration
-    const navigationTimeout = setTimeout(() => {
-      navigate('/level-selection');
-    }, 2000);
-
-    // Clean up timers
     return () => {
-      clearTimeout(navigationTimeout);
       clearTimeout(particleTimeout);
     };
-  }, [navigate]);
+  }, []);
 
   return (
-    <div className="nova-gradient min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      <div className="relative">
+    <div className="bg-gradient-to-br from-black to-gray-800 min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      <div className="relative z-10 text-center">
+        <div className="flex items-center justify-center h-24 w-24 bg-gradient-to-br from-red-600 to-black rounded-full mx-auto mb-6">
+          <Dumbbell className="h-14 w-14 text-white" />
+        </div>
         <h1 className="text-5xl font-poppins font-bold text-white text-shadow animate-scale-in">
           NOVA ERA
         </h1>
+        <p className="text-white/80 mt-2">ENTRENAMIENTO DE ÉLITE</p>
         {showParticles && <ParticleEffect />}
       </div>
     </div>

@@ -26,13 +26,11 @@ const LevelSelectionScreen = () => {
   };
   
   return (
-    <div className="nova-gradient min-h-screen flex flex-col p-6">
-      <h1 className="text-3xl font-poppins font-bold text-white text-shadow text-center mt-12 mb-2">
-        NOVA ERA
-      </h1>
-      <p className="text-white/90 text-center mb-10">
-        Selecciona tu nivel de entrenamiento
-      </p>
+    <div className="p-6 max-w-4xl mx-auto">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl font-poppins font-bold mb-2">Selecciona tu Nivel</h1>
+        <p className="text-gray-600">Escoge el nivel de entrenamiento que mejor se ajuste a ti</p>
+      </div>
       
       <div className="grid grid-cols-1 gap-6 mb-8">
         {workoutLevels.map((level, index) => (
@@ -46,10 +44,10 @@ const LevelSelectionScreen = () => {
         ))}
       </div>
       
-      <div className="mt-auto">
+      <div className="mt-6">
         <GoldenButton
           onClick={handleTechnicalAnalysis}
-          className="flex items-center justify-center gap-2 bg-white/20"
+          className="flex items-center justify-center gap-2 bg-white/20 mx-auto"
         >
           <Activity size={18} />
           Análisis Técnico Avanzado
