@@ -20,13 +20,13 @@ const SplashScreen: React.FC = () => {
   return (
     <div className="bg-nova-black min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="relative z-10 text-center">
-        <div className="flex items-center justify-center h-24 w-24 nova-button-gradient mx-auto mb-6 shadow-nova">
+        <div className="flex items-center justify-center h-24 w-24 nova-button-gradient mx-auto mb-6 shadow-nova rounded-xl">
           <Dumbbell className="h-14 w-14 text-white" />
         </div>
-        <h1 className="text-5xl font-gothic uppercase tracking-widest text-white text-shadow animate-scale-in">
+        <h1 className="text-5xl font-poppins uppercase tracking-wide text-white text-shadow animate-scale-in">
           NOVA <span className="text-nova-red">ERA</span>
         </h1>
-        <p className="text-nova-gold mt-2 font-gothic tracking-wider">ENTRENAMIENTO DE ÉLITE</p>
+        <p className="text-nova-gold mt-2 font-poppins tracking-wider">ENTRENAMIENTO DE ÉLITE</p>
         {showParticles && <ParticleEffect />}
         
         <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-nova-red to-transparent"></div>

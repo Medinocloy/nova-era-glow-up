@@ -77,7 +77,7 @@ export default {
 			fontFamily: {
 				poppins: ['Poppins', 'sans-serif'],
 				inter: ['Inter', 'sans-serif'],
-				gothic: ['Cinzel', 'serif'],   // Fuente estilo gótico/medieval
+				gothic: ['Poppins', 'sans-serif'],   // Cambiado de Cinzel a Poppins para estilo más family-friendly
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

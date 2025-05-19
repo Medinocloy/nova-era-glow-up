@@ -8,6 +8,7 @@ interface GoldenButtonProps {
   className?: string;
   fullWidth?: boolean;
   variant?: 'red' | 'gold';
+  disabled?: boolean;
 }
 
 const GoldenButton: React.FC<GoldenButtonProps> = ({ 
@@ -15,17 +16,20 @@ const GoldenButton: React.FC<GoldenButtonProps> = ({
   children, 
   className = "",
   fullWidth = false,
-  variant = 'red'
+  variant = 'red',
+  disabled = false
 }) => {
   return (
     <button
       onClick={onClick}
+      disabled={disabled}
       className={cn(
-        'relative px-6 py-3 border font-gothic uppercase tracking-wider',
+        'relative px-6 py-3 border font-poppins uppercase tracking-wider',
         'text-white text-shadow shadow-nova transition-colors duration-300',
         'hover:animate-glowing active:scale-95',
         variant === 'red' ? 'nova-button-gradient border-nova-red/40' : 'nova-gold-gradient border-nova-gold/40',
         fullWidth ? 'w-full' : '',
+        disabled ? 'opacity-50 cursor-not-allowed' : '',
         className
       )}
     >
