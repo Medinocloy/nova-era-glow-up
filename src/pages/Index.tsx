@@ -31,29 +31,29 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div 
               onClick={() => navigate('/schedule')}
-              className="bg-white dark:bg-nova-darkGray p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+              className="bg-white dark:bg-nova-black p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow border border-gray-200 dark:border-nova-darkGray hover:border-nova-red dark:hover:border-nova-red"
             >
               <div className="text-4xl mb-4">🗓️</div>
               <h2 className="text-xl font-bold mb-2">Agendar Hora</h2>
-              <p className="text-gray-600 dark:text-gray-300">Reserva tu espacio en el gimnasio</p>
+              <p className="text-gray-600 dark:text-nova-lightGray">Reserva tu espacio en el gimnasio</p>
             </div>
             
             <div 
               onClick={() => navigate('/trainers')}
-              className="bg-white dark:bg-nova-darkGray p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+              className="bg-white dark:bg-nova-black p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow border border-gray-200 dark:border-nova-darkGray hover:border-nova-red dark:hover:border-nova-red"
             >
               <div className="text-4xl mb-4">💼</div>
               <h2 className="text-xl font-bold mb-2">Agendar Personal</h2>
-              <p className="text-gray-600 dark:text-gray-300">Entrena con nuestros profesionales</p>
+              <p className="text-gray-600 dark:text-nova-lightGray">Entrena con nuestros profesionales</p>
             </div>
             
             <div 
               onClick={() => navigate('/level-selection')}
-              className="bg-white dark:bg-nova-darkGray p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+              className="bg-white dark:bg-nova-black p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow border border-gray-200 dark:border-nova-darkGray hover:border-nova-red dark:hover:border-nova-red"
             >
               <div className="text-4xl mb-4">🔥</div>
               <h2 className="text-xl font-bold mb-2">Entrenar</h2>
-              <p className="text-gray-600 dark:text-gray-300">Comienza tu rutina personalizada</p>
+              <p className="text-gray-600 dark:text-nova-lightGray">Comienza tu rutina personalizada</p>
             </div>
           </div>
         </div>

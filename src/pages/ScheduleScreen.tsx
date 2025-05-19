@@ -42,7 +42,7 @@ const ScheduleScreen: React.FC = () => {
     <div className="p-6 max-w-5xl mx-auto">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-poppins font-bold mb-2">Agendar Hora</h1>
-        <p className="text-gray-600">Selecciona el día y horario que prefieras</p>
+        <p className="text-gray-600 dark:text-nova-lightGray">Selecciona el día y horario que prefieras</p>
       </div>
       
       {/* Calendar Week View */}
@@ -61,8 +61,8 @@ const ScheduleScreen: React.FC = () => {
               onClick={() => handleDaySelect(index)}
               className={`cursor-pointer p-4 rounded-lg text-center transition-colors ${
                 selectedDay === index 
-                  ? 'bg-red-600 text-white' 
-                  : 'bg-gray-100 hover:bg-gray-200'
+                  ? 'bg-nova-red text-white' 
+                  : 'bg-gray-100 dark:bg-nova-black hover:bg-gray-200 dark:hover:bg-nova-darkGray'
               }`}
             >
               <div className="font-medium">{day.substring(0, 3)}</div>
@@ -82,8 +82,8 @@ const ScheduleScreen: React.FC = () => {
               onClick={() => handleTimeSelect(time)}
               className={`cursor-pointer p-3 rounded-lg text-center border transition-colors ${
                 selectedTime === time
-                  ? 'bg-red-600 text-white border-red-600'
-                  : 'border-gray-200 hover:border-red-300'
+                  ? 'bg-nova-red text-white border-nova-red'
+                  : 'border-gray-200 dark:border-nova-darkGray hover:border-nova-red dark:hover:border-nova-brightRed'
               }`}
             >
               {time}
@@ -99,7 +99,7 @@ const ScheduleScreen: React.FC = () => {
           disabled={!selectedTime}
           className={`px-8 py-3 rounded-lg font-medium transition-colors ${
             selectedTime
-              ? 'bg-red-600 text-white hover:bg-red-700'
+              ? 'bg-nova-red text-white hover:bg-nova-brightRed nova-button-gradient'
               : 'bg-gray-300 text-gray-500 cursor-not-allowed'
           }`}
         >

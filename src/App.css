@@ -12,10 +12,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #FF3636aa);
+  filter: drop-shadow(0 0 2em #6A0D0Daa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #FF3636aa);
+  filter: drop-shadow(0 0 2em #6A0D0Daa);
 }
 
 @keyframes logo-spin {
@@ -42,7 +42,7 @@
 }
 
 .nova-gradient {
-  background: linear-gradient(135deg, #000000, #1a1a1a, #333333);
+  background: linear-gradient(135deg, #2A2A2A, #1E3A5F, #4A0808);
 }
 
 .text-shadow {
@@ -54,11 +54,11 @@
 }
 
 .shadow-nova {
-  box-shadow: 0 4px 12px rgba(230, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(106, 13, 13, 0.25);
 }
 
 .nova-button-gradient {
-  background: linear-gradient(135deg, #FF3636, #e60000);
+  background: linear-gradient(135deg, #6A0D0D, #8A1D1D);
 }
 
 @keyframes scale-in {

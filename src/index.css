@@ -9,43 +9,43 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --foreground: 215 25% 27%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 215 25% 27%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 215 25% 27%;
 
-    --primary: 0 70% 40%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 76% 23%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 220 35% 25%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 46%;
 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 220 35% 25%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 70% 40%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 0 76% 23%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 15%;
+    --sidebar-background: 220 35% 25%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 0 70% 40%;
+    --sidebar-primary: 0 76% 23%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 20%;
+    --sidebar-accent: 220 20% 20%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 25%;
-    --sidebar-ring: 0 70% 40%;
+    --sidebar-border: 220 15% 30%;
+    --sidebar-ring: 0 76% 23%;
 
     --tx: random(300) * 1%;
     --ty: random(300) * 1%;
@@ -53,55 +53,59 @@
   }
 
   .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 70% 50%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 98%;
+    --background: 215 10% 16%;
+    --foreground: 0 0% 95%;
+    --card: 215 14% 14%;
+    --card-foreground: 0 0% 95%;
+    --popover: 215 14% 14%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 76% 23%;
+    --primary-foreground: 0 0% 95%;
+    --secondary: 220 35% 25%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 215 14% 20%;
+    --muted-foreground: 215 5% 65%;
+    --accent: 215 14% 20%;
+    --accent-foreground: 0 0% 95%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 70% 50%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 215 14% 25%;
+    --input: 215 14% 25%;
+    --ring: 0 76% 23%;
   }
 }
 
 @layer utilities {
-  /* Updated gradients to match Nova Era red and black theme */
+  /* Updated gradients to match Nova Era red and blue theme */
   .nova-gradient {
-    background: linear-gradient(25deg, #1a1a1a, #333333, #4d4d4d, #666666);
+    background: linear-gradient(25deg, #2A2A2A, #1E3A5F, #1E3A5F, #6A0D0D);
   }
   
   .nova-button-gradient {
-    background: linear-gradient(45deg, #e60000, #FF3636);
+    background: linear-gradient(45deg, #6A0D0D, #8A1D1D);
+  }
+
+  .nova-red-blue-gradient {
+    background: linear-gradient(45deg, #6A0D0D, #1E3A5F);
   }
 
   .dark .nova-gradient {
-    background: linear-gradient(25deg, #000000, #1a1a1a, #333333, #4d4d4d);
+    background: linear-gradient(25deg, #2A2A2A, #1E3A5F, #1E3A5F, #4A0808);
   }
   
   .dark .nova-button-gradient {
-    background: linear-gradient(45deg, #b30000, #e60000);
+    background: linear-gradient(45deg, #4A0808, #6A0D0D);
   }
   
   .text-shadow {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
   
   .confetti {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: #FF3636; /* Red accent instead of silver */
+    background-color: #C0C0C0; /* Silver accent instead of red */
     border-radius: 50%;
   }
 }

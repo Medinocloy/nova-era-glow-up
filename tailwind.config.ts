@@ -64,13 +64,15 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				nova: {
-					red: '#e60000',
-					brightRed: '#FF3636',
-					darkRed: '#b30000',
-					black: '#121212',
-					darkGray: '#333333',
-					gray: '#4d4d4d',
-					lightGray: '#666666',
+					red: '#6A0D0D',             // Updated to dark metallic red
+					brightRed: '#8A1D1D',       // Lighter version of the dark red
+					darkRed: '#4A0808',         // Darker version of the dark red
+					blue: '#1E3A5F',            // Added deep blue metallic
+					brightBlue: '#4A90E2',      // Added electric blue accent
+					black: '#2A2A2A',           // Updated to charcoal gray
+					darkGray: '#2A2A2A',        // Updated to match charcoal gray
+					gray: '#666666',            // Kept for consistency
+					lightGray: '#C0C0C0',       // Updated to silver metallic
 				}
 			},
 			fontFamily: {
@@ -84,7 +86,7 @@ export default {
 				nova: '12px',
 			},
 			boxShadow: {
-				nova: '0 8px 24px rgba(230, 0, 0, 0.3)', // Updated to red shadow
+				nova: '0 8px 24px rgba(106, 13, 13, 0.3)', // Updated to match the new red
 			},
 			keyframes: {
 				'accordion-down': {

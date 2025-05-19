@@ -36,7 +36,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header with logo and mobile menu button */}
-      <header className="bg-nova-black text-white p-4 flex justify-between items-center">
+      <header className="bg-nova-blue text-white p-4 flex justify-between items-center shadow-md">
         <div 
           className="flex items-center cursor-pointer" 
           onClick={() => navigate('/')}
@@ -54,14 +54,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       <div className="flex flex-1">
         {/* Vertical navigation menu - for desktop */}
-        <nav className="hidden lg:block w-64 bg-nova-black text-white">
+        <nav className="hidden lg:block w-64 bg-nova-blue text-white">
           <ul className="py-4">
             {menuItems.map((item) => (
               <li key={item.path}>
                 <button
                   onClick={() => navigate(item.path)}
                   className={cn(
-                    "w-full flex items-center px-6 py-4 hover:bg-nova-darkGray transition-colors",
+                    "w-full flex items-center px-6 py-4 hover:bg-nova-black/30 transition-colors",
                     location.pathname === item.path && "bg-nova-red"
                   )}
                 >
@@ -78,7 +78,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {isMenuOpen && (
           <div className="lg:hidden fixed inset-0 bg-black bg-opacity-70 z-40" onClick={toggleMenu}>
             <div 
-              className="bg-nova-black text-white w-3/4 h-full p-4"
+              className="bg-nova-blue text-white w-3/4 h-full p-4"
               onClick={(e) => e.stopPropagation()}
             >
               <ul className="py-4">
@@ -90,7 +90,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         setIsMenuOpen(false);
                       }}
                       className={cn(
-                        "w-full flex items-center px-6 py-4 hover:bg-nova-darkGray rounded-md transition-colors",
+                        "w-full flex items-center px-6 py-4 hover:bg-nova-black/30 rounded-md transition-colors",
                         location.pathname === item.path && "bg-nova-red"
                       )}
                     >
